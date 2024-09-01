@@ -7,8 +7,6 @@ function ProductCard({ product }) {
   const cart = useContext(CartContext);
   const productQuantity = cart.getProductQuantity(id);
 
-  console.log(productQuantity);
-
   return (
     <Card>
       <Card.Body>
