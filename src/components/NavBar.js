@@ -1,7 +1,7 @@
-import { useState, useContext } from "react";
-import { Button, Navbar, Modal } from "react-bootstrap";
-import { CartContext } from "../CartContext";
-import CartProduct from "./CartProduct";
+import { useState, useContext } from 'react';
+import { Button, Navbar, Modal } from 'react-bootstrap';
+import { CartContext } from '../CartContext';
+import CartProduct from './CartProduct';
 
 function NavbarComponent() {
   const cart = useContext(CartContext);
@@ -12,9 +12,9 @@ function NavbarComponent() {
   );
 
   const handleCheckout = async () => {
-    const res = await fetch("http://localhost:4000/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const res = await fetch('http://localhost:4000/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ items: cart.items }),
     });
 
@@ -23,10 +23,10 @@ function NavbarComponent() {
   };
   return (
     <>
-      <Navbar expand="sm">
-        <Navbar.Brand href="/">Ecommerce Store</Navbar.Brand>
+      <Navbar expand='sm'>
+        <Navbar.Brand href='/'>Ecommerce Store</Navbar.Brand>
         <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
+        <Navbar.Collapse className='justify-content-end'>
           <Button onClick={() => setShow(true)}>
             Cart {productsCount} Items
           </Button>
@@ -49,7 +49,7 @@ function NavbarComponent() {
               ))}
 
               <h1>Total: ${cart.getTotalCost().toFixed(2)}</h1>
-              <Button variant="success" onClick={handleCheckout}>
+              <Button variant='success' onClick={handleCheckout}>
                 Purchase Items
               </Button>
             </>
